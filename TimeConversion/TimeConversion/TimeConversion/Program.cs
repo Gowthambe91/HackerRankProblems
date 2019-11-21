@@ -22,7 +22,7 @@ namespace TimeConversion
 
         static string timeConversion(string sTimein12HrFormat)
         {
-            string[] strTimeSplitted = sTimein12HrFormat.Split(':');
+            string[] strTimeSplitted = sTimein12HrFormat.Split(':');//Split returns a String Array
             string result = "";
 
             double hrsDouble = Convert.ToDouble(strTimeSplitted[0]);
@@ -35,7 +35,7 @@ namespace TimeConversion
             //int secs = Convert.ToInt32(matchSeconds.Groups[1].Value);
             //string AMOrPM = matchSeconds.Groups[2].Value;
 
-            string secs = strTimeSplitted[2].Substring(0,2);
+            string secs = strTimeSplitted[2].Substring(0,2); //Substring(index,Length);
             string AMOrPM = strTimeSplitted[2].Substring(2, 2);
 
             if (AMOrPM.Equals("AM") && hrsDouble == 12)
