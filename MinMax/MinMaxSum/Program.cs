@@ -10,7 +10,8 @@ namespace MinMaxSum
     {
         static void Main(string[] args)
         {
-            int[] array = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
+            //int[] array = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
+            int[] array = { 256741038, 623958417, 467905213, 714532089, 938071625 };
             miniMaxSum(array);
             Console.ReadLine();
         }
@@ -18,12 +19,19 @@ namespace MinMaxSum
         static void miniMaxSum(int[] arr)
         {
             int minSum = 0; int maxSum = 0;
-            Int64 Sum = arr.Sum();
+            long Sum = 0;
+            foreach (int item in arr)
+            {
+                long longItem = (long)item;
+                Sum += longItem;
+            }
+            
             int minVal = arr.Min();
             int maxVal = arr.Max();
-            List<int> lst = arr.ToList<int>();
-            lst.Sort();
-            
+
+            //List<int> lst = arr.ToList<int>();
+            //lst.Sort();
+
             //for (int i = 0; i < arr.Length; i++)
             //{
             //    if (i != arr.Length - 1)
@@ -37,8 +45,11 @@ namespace MinMaxSum
             //    }
             //}
 
-            Console.WriteLine("{0} {1} Sum = {2}, minVal = {3}, maxVal = {4}, lstSum = {5}", Sum - maxVal, Sum - minVal, Sum, minVal
-                ,maxVal, lst.Sum());
+            Console.WriteLine("{0} {1}", Sum - maxVal, Sum - minVal);
+            ///,maxVal, lst.Sum());Sum = {2}, minVal = {3}, maxVal = {4}, lstSum = {5}
+
+
+            //256741038 623958417 467905213 714532089 938071625
         }
     }
 }
